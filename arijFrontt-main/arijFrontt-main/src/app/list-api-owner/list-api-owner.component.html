@@ -1,0 +1,35 @@
+
+  
+  
+  
+      
+      <div class="title">Liste des APIs</div>
+      
+      <button type="button" class="btn btn-warning" [routerLink]="['../ajout-api']">Ajouter API</button>
+      <br><br>
+      <table>
+        <tr>
+          <th>Nom API</th>
+          <th>Description</th>
+          <th>Input & Output</th>
+          <th>Cadre d'utilisation</th>
+          <th>Mode</th>
+          <th>Détail Hebergeur</th>
+          <th>Action</th>
+        </tr>
+        
+        <tr *ngFor="let a of api " >
+          <td>{{a?.nom}}</td>
+          <td>{{a?.description}}</td>
+          <td>{{a?.input}} {{a.output}}</td>
+          <td>{{a?.cadreutilisation}}</td>
+          <td>{{a?.mode}}</td>
+          <td><button type="button" class="btn btn-primary"  [routerLink]="['../hebergeur',  { id: a?.hebergeur.id }]" > Détail Hébéergeur          </button></td>
+          <td>
+            <span class="action-icons" (click)="archiver(a.id)">🗑️</span>
+            <span class="action-icons" [routerLink]="['../modifierlisteapiowner',{id:a.id}]">✏️</span>
+          </td>
+        </tr>
+  
+      </table>
+   

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+  <title>API List</title>
+<style>/* Dropdown Button */
+  .dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Dropdown button on hover & focus */
+  .dropbtn:hover, .dropbtn:focus {
+    background-color: #3e8e41;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content button {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content button:hover {background-color: #f1f1f1;}
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .dropdown:hover .dropbtn {background-color: #3e8e41;}
+  
+  /* Table styles */
+  .api-table {
+    margin-top: 20px;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  </style></head>
+<body>
+  
+
+  <div id="apiTable" class="api-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Nom API</th>
+          <th>Description</th>
+          <th>Input</th>
+          <th>Output</th>
+          <th>Cadre d'utilisation</th>
+          <th>Détail hébergeur</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Table body for API1 -->
+        <tr *ngFor="let a of allapi">
+          <td>{{a.nom}}</td>
+          <td>{{a.description}}</td>
+          <td>{{a.input}}</td>
+          <td>{{a.output}}1</td>
+          <td>{{a.cadreutilisation}}</td>
+          <td><button type="button" class="btn btn-secondary"  [routerLink]="['/Detail-Hebergeur',{id:a.hebergeur.id}]">Détail Hébergeur</button>
+          </td>
+          <td><button type="button" class="btn btn-outline-primary">
+            <i class="fa fa-eye"></i> Consultation
+        </button></td>
+        </tr>
+      
+      </tbody>
+    </table>
+  </div>
+
+  <script src="script.js">function toggleTable() {
+    var table = document.getElementById("apiTable");
+    if (table.style.display === "none") {
+      table.style.display = "block";
+    } else {
+      table.style.display = "none";
+    }
+  }
+  
+  function showTable() {
+    var api1Table = document.getElementById("api1Table");
+    api1Table.style.display = "table-row";
+  }
+  </script>
+</body>
+</html>

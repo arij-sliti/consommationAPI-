@@ -1,0 +1,71 @@
+
+
+<h2 align="center">Ajouter Validateur</h2><br><br>
+
+<form [formGroup]="validForm">
+    <h4>Informations sur Validateur </h4><br>
+    <table width="100%">
+      <tr>
+        <td width="1%"></td>
+        <td width="40%"><label for="apiName">Nom </label>
+          <input class="form-control" type="text" formControlName="nom" name="apiDescription" required>
+
+        </td>
+          <td width="1%"></td>
+    
+          <td width="40%"> <label for="apiDescription">Prénom</label>
+            <input class="form-control" type="text" formControlName="prenom" name="apiDescription" required>
+         </td>
+         <td width="1%"></td>
+    
+      </tr>
+      <tr>
+        <td width="1%"></td>
+        <td width="40%">    <label for="userCode">Email</label>
+         
+          <input class="form-control" type="text" formControlName="email" name="userCode" required>
+        </td>
+          <td width="1%"></td>
+    
+          <td width="40%">  <label for="accessData">Mot de passe</label>
+            <input class="form-control" type="text" formControlName="password" id="accessData" name="accessData" required>     </td>
+         <td width="1%"></td>
+    
+      </tr>
+    
+      <tr>
+        <td width="1%"></td>
+        <td width="40%">           <label for="accessData">Login </label>
+          <input class="form-control" type="text" formControlName="login" id="accessData" name="accessData" required>
+        </td>
+          <td width="1%"></td>
+    
+          <td width="40%">    <label for="userCode">Cin</label>
+            <input class="form-control" type="text" formControlName="cin" id="accessData" name="accessData" required>
+              </td>
+         <td width="1%"></td>
+    
+      </tr>
+      <tr>
+        <td width="1%"></td>
+        <td width="40%">           <label for="accessData">Date de naissance </label>
+          <input class="form-control" type="date" formControlName="datenaissance" id="accessData" name="accessData" required>
+        </td>
+          <td width="1%"></td>
+          <td width="40%">           <label for="accessData">Profil </label>
+            <select class="form-control" type="text" formControlName="profil" id="accessData" name="accessData" required>
+            <option value="Validateur1">Validateur1</option>
+            <option value="Validateur2">Validateur2</option>
+
+        </select>
+          </td>
+          <td></td>
+    
+      </tr>
+    </table>
+   <br><br>
+      <button type="button" class="btn btn-info" (click)="Enregistrer()">Enregistrer</button>
+      </form>
+      <br><br>
+
+

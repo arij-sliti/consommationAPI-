@@ -1,0 +1,50 @@
+
+<body>
+    <h1>Profile Utilisateur</h1>
+    <form>
+    <fieldset>
+    <legend>Informations generales</legend>
+    <label for="firstName">Prenom:</label><br> <input type="text" id="firstName" name="firstName"><br>
+    <label for="cinNumber">Numero CIN:</label><br>
+    <input type="text" id="cinNumber" name="cinNumber" ><br>
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" ><br>
+    <label for="lastName">Nom:</label><br>
+    <input type="text" id="lastName" name="lastName" ><br>
+    <label for="mobileNumber">Numero mobile:</label><br>
+    <input type="tel" id="mobileNumber" name="mobileNumber"><br>
+    </fieldset>
+    <fieldset>
+    <legend>Coordonnées</legend>
+    <label for="country">Pays/région:</label><br>
+    <select id="country" name="country">
+    <option value="tunis">Tunis</option>
+    <!-- Add more options as needed -->
+    </select><br>
+    <label for="address">Address:</label><br>
+    <input type="text" id="address" name="address"><br>
+    <label for="city">Ville:</label><br>
+    <input type="text" id="city" name="city" value="Tunis"><br>
+    </fieldset>
+    <fieldset>
+    <legend>Mot de passe actuel</legend>
+    <label for="currentPassword">Mot de passe actuel:</label><br>
+    <input type="password" id="currentPassword" name="currentPassword"><br>
+    <label for="newPassword">Confirmer Nouveau Password:</label><br>
+    <input type="password" id="newPassword" name="newPassword"><br>
+    <label for="confirmNewPassword">Nouveau mot de pass:</label><br>
+    <input type="password" id="confirmNewPassword" name="confirmNewPassword"><br>
+    </fieldset>
+    <fieldset>
+    <legend>Code postale</legend>
+    <input type="text" id="postalCode" name="postalCode"><br>
+    </fieldset>
+    <fieldset>
+    <legend>Photo de profil</legend>
+    <input type="file" id="profilePicture" name="profilePicture"><br>
+    </fieldset>
+    <button type="submit">Enregistrer</button>
+    <button type="button" onclick="location.href='home.html';">supprimer</button>
+    </form>
+   </body>
+   

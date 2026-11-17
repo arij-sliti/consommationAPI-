@@ -1,0 +1,117 @@
+
+
+<h2 align="center">Ajouter API</h2><br><br>
+
+<form [formGroup]="apiForm">
+    <h4>Informations sur l’API </h4><br>
+    <table width="100%">
+      <tr>
+        <td width="1%"></td>
+        <td width="40%"><label for="apiName">Nom API</label>
+          <input class="form-control" type="text" formControlName="nom" name="apiDescription" required>
+
+        </td>
+          <td width="1%"></td>
+    
+          <td width="40%"> <label for="apiDescription">Description de l’API</label>
+            <input class="form-control" type="text" formControlName="description" name="apiDescription" required>
+         </td>
+         <td width="1%"></td>
+    
+      </tr>
+      <tr>
+        <td width="1%"></td>
+      
+    
+          <td width="40%">  <label for="accessData">Données d’entree</label>
+            <input class="form-control" type="text" formControlName="input" id="accessData" name="accessData" required>     </td>
+         <td width="1%"></td>
+    
+      </tr>
+    
+      <tr>
+        <td width="1%"></td>
+        <td width="40%">           <label for="accessData">Données de sortie </label>
+          <input class="form-control" type="text" formControlName="output" id="accessData" name="accessData" required>
+        </td>
+          <td width="1%"></td>
+    
+      
+    
+      </tr>
+    </table>
+    <br><br>
+    <h4>Informations sur l’application consommant l'API </h4><br>
+
+    <table width="100%">
+        <tr>
+          <td width="1%"></td>
+          <td width="40%"><label for="apiName">Nom Hébergeur</label>
+            <input class="form-control" type="text" formControlName="nom2" id="apiDescription" name="apiDescription" required>
+        </td>
+            <td width="1%"></td>
+      
+            <td width="40%"> <label for="apiDescription">Application publié sur Internet</label><br>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio"  formControlName="publier" value=true>
+                    <label class="form-check-label" for="inlineRadio1">Oui</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" formControlName="publier"  value=false>
+                    <label class="form-check-label" for="inlineRadio2">Nom</label>
+                  </div>
+                
+
+           </td>
+           <td width="1%"></td>
+      
+        </tr>
+        <tr>
+          <td width="1%"></td>
+          <td width="40%">    <label for="userCode">Le nom de domaine de l’application</label>
+           
+            <input class="form-control" type="text" formControlName="domaine" id="userCode" name="userCode" required>
+          </td>
+            <td width="1%"></td>
+      
+            <td width="40%">  <label for="accessData" >Adresses IP des serveurs</label>
+              <input class="form-control" type="text" formControlName="adresse" id="accessData" name="accessData" required>     </td>
+           <td width="1%"></td>
+      
+        </tr>
+      
+        <tr>
+          <td width="1%"></td>
+          <td width="40%">           <label for="accessData">Hébergeur situé en Tunisie </label><br>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" formControlName="locale"   (click)="value2()"  value=true>
+                <label class="form-check-label" for="inlineRadio1">Oui</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" formControlName="locale"  (click)="value()"   value=false>
+                <label class="form-check-label" for="inlineRadio2">Nom</label>
+              </div>          </td>
+            <td width="1%"></td>
+      
+            <td width="40%">    <label for="userCode">Type de connexion au CNI</label>
+              <select class="form-control" id="annualImport" formControlName="cni" name="annualImport" required>
+                <option value="lessThan100k">RNIA</option>
+                <option value="between100kAnd1M">VPN</option>
+              </select>   </td>
+           <td width="1%"></td>
+      
+        </tr>
+        <tr *ngIf="this.afficher">
+            <td width="1%"></td>
+            <td width="40%">           <label for="accessData">Pays</label><br>
+                <input class="form-control" type="text"formControlName="pays" id="accessData" name="accessData" required>   
+              </td>
+              
+        
+          </tr>
+      </table><br>
+      <button type="button" class="btn btn-warning" (click)="Enregistrer()">Enregistrer</button>
+      </form>
+      <br><br>
+
+

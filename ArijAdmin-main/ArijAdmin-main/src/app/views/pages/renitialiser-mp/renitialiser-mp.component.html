@@ -1,0 +1,9 @@
+<form [formGroup]="reniform">
+    <div class="textbox">
+        <i class="fas fa-user menu-icon"></i>
+        <input formControlName="email" type="text" placeholder="Email" name="username" required>
+    </div>
+  
+    <button  (click)="envoyer()" 
+    type="submit" class="btn" value="Sign in">Envoyer</button>
+</form>

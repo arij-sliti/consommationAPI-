@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barre de Recherche</title>
+<style>.search-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+input[type=text] {
+  width: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+</style>></head>
+<body>
+<form [formGroup]="demandeform">
+<div class="search-container">
+  <h1> Réference demande</h1>
+  <input type="text" formControlName="ref" id="searchInput" placeholder="Rechercher...">
+  <button type="submit" (click)="recherche()" id="searchButton">Rechercher</button>
+</div>
+</form>
+
+
+
+<div id="apiTable" class="api-table">
+    <table *ngIf="this.afficher">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Reference</th>
+          <th>Status</th>
+          <th>Valider</th>
+          <th>Api</th>
+          <th>Email Utilisateur</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Table body for API1 -->
+        <tr *ngFor="let h of demande">
+          <td>{{h?.date}}</td>
+          <td>{{h?.reference}}</td>
+          <td>{{h?.status}}</td>
+          <td *ngIf="h.valider=='0'">En Cours</td>
+          <td *ngIf="h.valider=='2'">Valider</td>
+          <td *ngIf="h.valider=='1'">Valider en premiéer étape</td>
+          <td>{{h?.api.nom}}</td>
+          <td>{{h?.utilisateur.email}}</td>
+          
+
+        </tr>
+      
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>

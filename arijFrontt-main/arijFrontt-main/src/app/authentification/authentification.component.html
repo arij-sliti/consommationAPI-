@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Interface avec Bootstrap</title>
+    <!-- Lien vers la feuille de style Bootstrap 5 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css">
+    <!-- Lien vers les icônes Bootstrap -->
+    <link rel="stylesheet" href="https://icons.getbootstrap.com/">
+</head>
+    <!-- Votre propre feuille de style CSS (si nécessaire) -->
+<body *ngIf="this.token==null">
+
+    <div class="login-box">
+     <div class="az">  <img src="assets/cni.jpeg" class="logoA"width="75px"></div>
+
+
+        <form [formGroup]="loginform">
+            <div class="textbox">
+                <i class="fas fa-user menu-icon"></i>
+                <input formControlName="email" type="text" placeholder="Username" name="username" required>
+            </div>
+            <div class="textbox">
+                <i class="fas fa-lock"></i>
+
+                <input formControlName="password"  type="password" placeholder="Password" name="password" required>
+            </div>
+            <p>Vous n'avez pas de compte ? <a href="inscri">S'inscrire</a></p>
+            <button  (click)="connexion()" 
+            type="submit" class="btn" value="Sign in">Se connecter</button>
+            <p> Vous avez oublier Mot de passe ? <a href="RenitialiserMP">Cliquez ICI</a></p>
+
+            
+        </form>
+    </div>
+   
+</body>
+

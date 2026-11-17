@@ -1,0 +1,47 @@
+.table-custom {
+    background-color: #f8f9fa;
+  }
+  
+  .table-custom th {
+    background-color: #6c757d;
+    color: white;
+  }
+  
+  .table-custom td {
+    text-align: center;
+  }
+  .custom-title {
+    background-color: #e9ecef; /* Couleur de fond */
+    border-radius: 0.5rem; /* Bordures arrondies */
+    padding: 1rem; /* Espacement interne */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); /* Ombre portée */
+  }
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scrolling if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+
+  /* Styles for the modal content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: modalopen;
+    animation-duration: 0.5s;
+  }
+
+  /* Animation for modal opening */
+  @keyframes modalopen {
+    from {opacity: 0}
+    to {opacity: 1}
+  }

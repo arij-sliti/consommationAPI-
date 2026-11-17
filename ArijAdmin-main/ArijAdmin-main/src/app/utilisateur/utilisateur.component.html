@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+
+<table>
+  <tr>
+    <th>Nom</th>
+    <th>Prénom</th>
+    <th>Email</th>
+    <th>Date de naissance</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let s of alluser">
+    <td>{{s.nom}}</td>
+    <td>{{s.prenom}}</td>
+    <td>{{s.email}}</td>
+    <td>{{s.datenaissance | date: "dd/MM/yyyy"}}</td>
+    <td class="action-btns">
+      <button class="btn btn-warning"  [routerLink]="['../modifier-utilisateur',{id:s.id}]">Modifier</button>
+      <button class="btn btn-danger" (click)="archiver(s.email)">Supprimer</button>
+    </td>
+  </tr>
+  <!-- Ajoutez d'autres lignes ici -->
+</table>
+
+</body>
+</html>

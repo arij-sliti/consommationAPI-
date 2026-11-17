@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>liste demande en cours</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+ 
+</head>
+<body>
+<b><h1 class="display-4 text-center my-4 text-primary custom-title">Résultat Demande:</h1></b>
+  <div class="container mt-5">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Nom Api </th>
+          <th scope="col">Réference demande</th>
+           <th scope="col">Hébergeur</th>
+
+          <th scope="col">Date création</th>
+          <th scope="col">Nom responsable</th>
+          <th scope="col">Prenom Responsable</th>
+          <th scope="col">Email Responsable</th>
+
+         <th scope="col">Action attendue</th>
+
+         <th scope="col">Supprimer</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let d of demandeencours">
+          <td>{{d?.api?.nom}}</td>
+          <td>{{d?.reference}}</td>
+          <td>{{d?.api?.hebergeur?.nom}}</td>
+          <td>{{d?.date}}</td>
+
+          <td>{{d?.nom}}</td>
+          <td>{{d?.prenom}}</td>
+          <td>{{d?.email}}</td>
+          <td><button *ngIf="d.status!='rectifier'" type="button" class="btn btn-warning">
+  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+  En cours
+</button> 
+<button *ngIf="d.status=='rectifier'" (click)="rectif(d.id)" type="button" class="btn btn-warning"  onclick="document.getElementById('myModal').style.display='block'">
+  <span class="spinner-border-sm" role="status" aria-hidden="true"></span>
+  A réctifier
+</button> </td>
+<td><button type="button" class="btn btn-danger btn-sm" (click)="supprimer(d.id)">Supprimer</button>
+</td>
+        </tr>
+      
+     
+
+      </tbody>
+    </table>
+  </div>
+
+
+
+
+  <form [formGroup]="reftiform">     
+    <div id="myModal" class="modal">
+     <!-- Modal content -->
+     <div class="modal-content">
+       <span onclick="document.getElementById('myModal').style.display='none'" class="close">&times;</span>
+       <h2>Réctifier la demande :{{this.demande?.rectifier}}</h2>
+       Votre Cas d'utilisation : {{this.demande?.cadreutilisation}}<input  formControlName="cadreutilisation" type="text" class="form-control" type="text"  name="apiDescription" required><br>
+       Vote impact :{{this.demande?.mode}} <input formControlName="mode" type="text" class="form-control" type="text"  name="apiDescription" required><br>
+
+       <button type="button" (click)="confirmer()" class="btn btn-dark">Confirmer</button>
+
+
+     </div>
+   </div>
+ </form>
+
+   <script>
+     // Close the modal if user clicks outside of it
+     window.onclick = function(event) {
+       var modal = document.getElementById('myModal');
+       if (event.target == modal) {
+         modal.style.display = "none";
+       }
+     }
+</script>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+

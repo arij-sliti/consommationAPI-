@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>liste demande términé</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  
+</head>
+<body>
+<b><h1 class="display-4 text-center my-4 text-primary custom-title">Résultat Demande:</h1></b>
+  <div class="container mt-5">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Nom Api </th>
+          <th scope="col">Réference demande</th>
+           <th scope="col">Hébergeur</th>
+
+          <th scope="col">Date création</th>
+          <th scope="col">URL</th>
+          <th scope="col">Pdf</th>
+
+         <th scope="col">Action attendue</th>
+         <th scope="col">Refuser</th>
+
+
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr   *ngFor="let d of demande" >
+            <td>{{d?.api?.nom}}</td>
+            <td>{{d?.reference}}</td>
+            <td>{{d?.api?.hebergeur?.nom}}</td>
+            <td>{{d?.date}}</td>
+            <td>{{d?.url}}</td>
+            <td *ngIf="d?.url==null"></td>
+            <td *ngIf="d?.url!=null"><button class="btn btn-warning" (click)="generatePdf(d.id)">pdf</button></td>
+          <td *ngIf="d.status=='Accepter'"><button type="button" class="btn btn-success">Accepté</button>
+            <button type="button" class="btn btn-danger " (click)="supprimer(d.id)">Résiliation Contrat</button>
+          </td>
+        <td *ngIf="d.status=='Refuser'"><button type="button" class="btn btn-danger ">Refusé</button></td>
+        <td *ngIf="d.status=='Refuser'">{{d?.refus}}</td>
+
+        </tr>
+       
+      
+
+      </tbody>
+    </table>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+

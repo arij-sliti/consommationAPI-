@@ -1,0 +1,18 @@
+.table-custom {
+    background-color: #f8f9fa;
+  }
+  
+  .table-custom th {
+    background-color: #6c757d;
+    color: white;
+  }
+  
+  .table-custom td {
+    text-align: center;
+  }
+  .custom-title {
+    background-color: #e9ecef; /* Couleur de fond */
+    border-radius: 0.5rem; /* Bordures arrondies */
+    padding: 1rem; /* Espacement interne */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); /* Ombre portée */
+  }

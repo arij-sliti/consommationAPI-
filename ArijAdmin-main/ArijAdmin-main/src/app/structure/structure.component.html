@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+
+<table>
+  <tr>
+    <th>Nom</th>
+    <th>Prénom</th>
+    <th>Email</th>
+    <th>Date de naissance</th>
+    <th>Profil</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let s of allstructure">
+    <td>{{s.nom}}</td>
+    <td>{{s.prenom}}</td>
+    <td>{{s.email}}</td>
+    <td>{{s.datenaissance  | date: "dd/MM/yyyy"}}</td>
+    <td>{{s.authorities.name}}</td>
+    <td class="action-btns">
+      <button type="button" class="btn btn-secondary"   [routerLink]="['/modifier-structure',{id:s.id}]">Modifier</button>
+      <button class="btn btn-danger" (click)=archiver(s.id)>Supprimer</button>
+    </td>
+  </tr>
+  <!-- Ajoutez d'autres lignes ici -->
+</table>
+
+</body>
+</html>

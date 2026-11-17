@@ -1,0 +1,86 @@
+
+<section *ngIf="this.conexion!=null" class="su">
+    <nav>
+
+        <!--<a href="index.html"><img src="logo.png" alt="logoimage"></a>-->
+        <div class="logo">
+          <img src="../../assets/cnn.png" class="logo">
+
+            </div>
+         <div class="nav-links" id="navLinks">
+            <i class="fa fa-times" onclick="hideMenu()"></i>
+            <ul>
+            <div class="menu">
+
+                <li><a href="acceuil">Acceuil</a></li><br>
+
+                <li  *ngIf="this.role=='Utilisateur'"><a href="listeapi">Liste d'api</a></li><br>
+                <li *ngIf="this.role=='Data Owner'"><a href="listeapiowner">Mes d'api</a></li><br>
+
+                <li  *ngIf="this.role=='Utilisateur'"><a href="demande">Demande</a></li>
+                <li *ngIf="this.role=='Data Owner'"><a href="validateur">Liste Validateur</a></li>
+                <li *ngIf="this.role=='Validateur1'"><a href="demande-validateur">Liste Demande</a></li>
+                <li *ngIf="this.role=='Validateur2'"><a href="demande-validateur">Liste Demande</a></li>
+                <li *ngIf="this.role=='Validateur2'"><a href="Demande-accepter">Liste Demande Accepter</a></li>
+                <li *ngIf="this.role=='Validateur2'"><a href="liste-tous-demande">Liste tous les Demande </a></li>
+                <li *ngIf="this.role=='Validateur1'"><a href="liste-tous-demande">Liste tous les Demande </a></li>
+
+              
+                
+
+             
+                <li  *ngIf="this.role=='Admin'"><a href="demande">Utilisateur</a></li>
+
+                <li *ngIf="this.role=='Utilisateur'" class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Espace demandeur</a>
+                    <div class="dropdown-content">
+                 <div class="z">  <h6> <a href="liste-demande-encours">Liste demande en cours</a></h6>
+                     <h6> <a href="liste-demande-termine">Liste demande terminé</a></h6>
+                    </div>
+                  </div> 
+                  </li>
+                  <li *ngIf="this.role=='Data Owner'" class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Espace validateur</a>
+                    <div class="dropdown-content">
+                     <h6> <a href="liste-demande-avalide">Liste demande a valider </a></h6>
+                     <h6> <a href="liste-demande-valide">Liste demande validée</a></h6>
+                    </div>
+                    
+                  </li>
+
+                  <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">
+                      <img src="../../assets/prof.png" width="40" height="30">
+                    </a>
+                    <div class="dropdown-content">
+                     <h6 *ngIf="this.role!='Utilisateur'" class="t"> {{this.role}}</h6>
+                     <h6 *ngIf="this.role=='Utilisateur'" class="t"> Demandeur</h6>
+                     
+                     <h6 class="t"> {{this.email}}</h6>
+                    <h6 class="t"><i class="fas fa-user menu-icon"></i>
+                      <span>Mon Profil</span></h6>
+
+                      <h6 class="t"><i class="fas fa-cog menu-icon"></i>
+                        <span>Paramétres</span></h6>
+
+
+                      <h6 class="t"><i class="fas fa-sign-out-alt menu-icon" ></i>
+                       <a  href="../connexion"  (click)="deconnexion()"> <span >Se Déconnecter</span></a></h6>
+
+
+                    </div>
+                  </li>
+  
+
+                  <li><a type="button" class="btn btn-light" href="../connexion"  (click)="deconnexion()">Déconnexion</a></li>
+            </div>
+            </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+    </nav>
+
+</section>
+     
+
+
+

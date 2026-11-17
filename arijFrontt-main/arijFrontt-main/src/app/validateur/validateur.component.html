@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>liste demande términé</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  
+</head>
+<body>
+    <br><br>
+    <button type="button" class="btn btn-primary" [routerLink]="['../ajout-validateur']">Ajouter Validateur</button>
+
+    <br><br>
+<b><h1 class="display-4 text-center my-4 text-primary custom-title">Liste de validateur:</h1></b>
+  <div class="container mt-5">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Nom </th>
+          <th scope="col">Prénom</th>
+           <th scope="col">Email</th>
+
+          <th scope="col">Validateur</th>
+          <th scope="col">Archiver</th>
+          <th scope="col">Modifier</th>
+
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let u of validateur" >
+            <td>{{u.nom}}</td>
+            <td>{{u.prenom}}</td>
+            <td>{{u.email}}</td>
+            <td>{{u.validateur}}</td>
+            <td><button type="button" (click)="archiver(u.id)" class="btn btn-danger btn-sm">Archiver</button></td>
+            <td><button type="button"  [routerLink]="['../modifier-validateur',{id:u.id}]"  class="btn btn-warning">Modifier</button></td>
+
+
+        </tr>
+       
+      
+
+      </tbody>
+    </table>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+

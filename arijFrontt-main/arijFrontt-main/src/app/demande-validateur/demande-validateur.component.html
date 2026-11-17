@@ -1,0 +1,134 @@
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>liste demandes</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  
+</head>
+<body>
+  <div *ngIf="this.profil=='Validateur2'">
+
+<b><h1 class="display-4 text-center my-4 text-primary custom-title">Résultat Demande:</h1></b>
+  <div class="container mt-5">
+   <form [formGroup]="form2">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Réference demande : </th>
+          <th scope="col">Statut</th>
+           <th scope="col">Date de création de demande :</th>
+
+          <th scope="col">Nombre de validation :</th>
+          <th scope="col">Détail de la demande</th>
+          <th scope="col">Accépter</th>
+          <th scope="col">Refuser</th>
+          <th scope="col">Rectifier</th>
+
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let d of demandee" >
+            <td>{{d?.reference}}</td>
+            <td *ngIf="d.status=='En Cours'">En cours de traitement</td>
+            <td>{{d?.date}}</td>
+            <td>{{d?.valider}}</td>
+  <td><a  [routerLink]="['../detail-demande-validateur',{id:d.id}]">Détails demande</a></td>
+          <td><button type="button" (click)="accepter(d.id)" class="btn btn-success">Accepté</button>
+        <td *ngIf="this.affiche"><input type="text" formControlName="refus"> <br><br> <button type="button" (click)="refusers(d.id)" class="btn btn-danger btn-sm">Refusé</button></td>
+        <td *ngIf="!this.affiche"><button (click)="afficher()" type="button"class="btn btn-danger btn-sm">Refusé</button></td>
+
+          <td><button type="button" (click)="rectifier(d.id)" class="btn btn-warning">Rectifié</button>
+
+</td>
+        </tr>
+       
+      
+
+      </tbody>
+    </table>
+  </form>
+  </div>
+  </div>
+
+  <div *ngIf="this.profil=='Validateur1'">
+
+    <b><h1 class="display-4 text-center my-4 text-primary custom-title">Résultat Demande:</h1></b>
+      <div class="container mt-5">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Réference demande : </th>
+              <th scope="col">Statut</th>
+               <th scope="col">Date de création de demande :</th>
+    
+              <th scope="col">Nombre de validation :</th>
+             <th scope="col">Détail de la demande</th>
+             <th scope="col">Accépter</th>
+             <th scope="col">Refuser</th>
+             <th scope="col">Rectifier</th>
+    
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let d of demandeencours" >
+                <td>{{d?.reference}}</td>
+                <td *ngIf="d.status=='En Cours'">En cours de traitement</td>
+                <td>{{d?.date}}</td>
+                <td>{{d?.valider}}</td>
+                <td><a  [routerLink]="['../detail-demande-validateur',{id:d.id}]">Détails demande</a></td>
+              <td><button type="button" (click)="accepter(d.id)" class="btn btn-success">Accepté</button>
+
+                <td><button type="button" (click)="refuser(d.id)" class="btn btn-danger btn-sm">Refusé</button></td>
+
+<td>  <button (click)="id(d.id)" class="btn btn-warning" onclick="document.getElementById('myModal').style.display='block'">Rectifié</button></td>
+    
+            </tr>
+           
+          
+    
+          </tbody>
+        </table>
+      </div>
+      </div>
+
+    
+
+      <!-- The Modal -->
+     <form [formGroup]="rectiffrom">     
+       <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span onclick="document.getElementById('myModal').style.display='none'" class="close">&times;</span>
+          <h2>Réctifier la demande : </h2>
+          <textarea class="form-control" type="text" formControlName="rectifier"  name="apiDescription" required></textarea><br>
+          <button type="button" (click)="confirmer()" class="btn btn-dark">Confirmer</button>
+
+
+        </div>
+      </div>
+    </form>
+
+      <script>
+        // Close the modal if user clicks outside of it
+        window.onclick = function(event) {
+          var modal = document.getElementById('myModal');
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+        </script>
+      
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
+

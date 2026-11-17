@@ -1,0 +1,47 @@
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>liste demande términé</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  
+</head>
+<body>
+<b><h1 class="display-4 text-center my-4 text-primary custom-title">Résultat Demande:</h1></b>
+  <div class="container mt-5">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Réference demande : </th>
+          <th scope="col">Statut demande</th>
+           <th scope="col">Date de création de demande :</th>
+
+         <th scope="col">Nombre de validation :</th>
+         <th scope="col">Détail de la demande</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr   *ngFor="let d of demandeencours" >
+            <td>{{d?.reference}}</td>
+            <td>{{d?.status}}</td>
+            <td>{{d?.date}}</td>
+            <td>{{d?.valider}}</td>
+         <td>      <a   [routerLink]="['../detail-demande-validateur',{id:d.id}]" class="card-link">Détails demande</a>         </td>
+        </tr>
+       
+      
+
+      </tbody>
+    </table>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+

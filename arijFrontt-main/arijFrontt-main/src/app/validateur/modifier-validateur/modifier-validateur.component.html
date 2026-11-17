@@ -1,0 +1,38 @@
+
+
+<h2 align="center">Modifier Validateur</h2><br><br>
+
+<form [formGroup]="validForm">
+    <table width="100%">
+      <tr>
+        <td width="1%"></td>
+        <td width="40%"><label for="apiName">Nom </label>
+          <input class="form-control" [ngModel]="this.structure?.nom" type="text" formControlName="nom" name="apiDescription" required>
+
+        </td>
+          <td width="1%"></td>
+    
+          <td width="40%"> <label for="apiDescription">Prénom</label>
+            <input class="form-control" [ngModel]="this.structure?.prenom" type="text" formControlName="prenom" name="apiDescription" required>
+         </td>
+         <td width="1%"></td>
+    
+      </tr>
+      <tr>
+        <td width="1%"></td>
+        <td width="40%">    <label for="userCode">Email</label>
+         
+          <input class="form-control" type="text" [ngModel]="this.structure?.email" formControlName="email" name="userCode" required>
+        </td>
+          <td width="1%"></td>
+    
+        
+      </tr>
+    
+    </table>
+   <br><br>
+      <button type="button" class="btn btn-info" (click)="Enregistrer()">Modfifer</button>
+      </form>
+      <br><br>
+
+

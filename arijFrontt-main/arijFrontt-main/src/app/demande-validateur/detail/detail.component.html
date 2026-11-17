@@ -1,0 +1,68 @@
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>liste demandes</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  
+</head>
+<body>
+ 
+
+  <div>
+
+    <b><h1 class="display-4 text-center my-4 text-primary custom-title">Résultat Demande:</h1></b>
+      <div class="container mt-5">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Date demande : </th>
+              <th scope="col">Reference</th>
+               <th scope="col">Status</th>
+    
+              <th scope="col">Nom Api</th>
+             <th scope="col">Email utilisateur</th>
+             <th scope="col">Email</th>
+             <th scope="col">Nom</th>
+             <th scope="col">Preom</th>
+             <th scope="col">Téléphone</th>
+             <th scope="col">Impact</th>
+             <th scope="col">Cadre Utilisation</th>
+    
+            </tr>
+          </thead>
+          <tbody>
+            <tr >
+                <td>{{this.demande?.date}}</td>
+                <td>{{this.demande?.reference}}</td>
+                <td>{{this.demande?.status}}</td>
+                <td>{{this.demande?.api?.nom}}</td>
+      
+                <td>{{this.demande?.utilisateur?.email}}</td>
+                <td>{{this.demande?.email}}</td>
+                <td>{{this.demande?.nom}}</td>
+                <td>{{this.demande?.prenom}}</td>
+                <td>{{this.demande?.tel}}</td>
+                <td>{{this.demande?.mode}}</td>
+                <td>{{this.demande?.cadreutilisation}}</td>
+
+            </tr>
+           
+          
+    
+          </tbody>
+        </table>
+      </div>
+      </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
+

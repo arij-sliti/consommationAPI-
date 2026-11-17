@@ -1,0 +1,40 @@
+
+
+<h2 align="center">Modifier API</h2><br><br>
+
+<form [formGroup]="apiForm">
+    <table width="100%">
+      <tr>
+        <td width="1%"></td>
+        <td width="40%"><label for="apiName">Nom API</label>
+          <input class="form-control" type="text" [ngModel]="this.api?.nom" formControlName="nom" name="apiDescription" required>
+
+        </td>
+          <td width="1%"></td>
+    
+          <td width="40%"> <label for="apiDescription">Description de l’API</label>
+            <input class="form-control" type="text" [ngModel]="this.api?.description" formControlName="description" name="apiDescription" required>
+         </td>
+         <td width="1%"></td>
+    
+      </tr>
+      <tr>
+        <td width="1%"></td>
+        <td width="40%">           <label for="accessData">Données de sortie </label>
+            <input class="form-control" type="text" [ngModel]="this.api?.output" formControlName="output" id="accessData" name="accessData" required>
+          </td>
+          <td width="1%"></td>
+    
+          <td width="40%">  <label for="accessData">Données d’entree</label>
+            <input class="form-control" type="text" [ngModel]="this.api?.input" formControlName="input" id="accessData" name="accessData" required>     </td>
+         <td width="1%"></td>
+    
+      </tr>
+    
+    </table>
+   <br><br>
+      <button type="button" class="btn btn-info" (click)="Enregistrer()">Modifier</button>
+      </form>
+      <br><br>
+
+

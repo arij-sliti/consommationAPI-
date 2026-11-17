@@ -1,0 +1,40 @@
+<body>
+
+    <div class="container">
+        <h1>Inscription</h1>
+        <h3>Créer un nouveau compte:</h3>
+        <form [formGroup]="userform" action="#">
+            <div class="form-group">
+                <label for="first-name">Prénom</label>
+                <input type="text" formControlName="prenom" id="first-name" placeholder="Votre prénom">
+            </div>
+            <div class="form-group">
+                <label for="last-name">Nom de famille</label>
+                <input type="text" id="last-name" formControlName="nom" placeholder="Votre nom de famille">
+            </div>
+            <div class="form-group">
+                <label for="email">Numéro de cellulaire ou adresse courriel</label>
+                <input type="email" id="email" formControlName="email" placeholder="Votre email ou numéro de cellulaire">
+            </div>
+            <div class="form-group">
+                <label for="password">Nouveau mot de passe</label>
+                <input type="password" id="password" formControlName="password" placeholder="Votre nouveau mot de passe">
+            </div>
+            <div class="form-group">
+                <label for="birthdate">Date de naissance</label>
+                <input type="date" id="password" formControlName="datenaissance" placeholder="Votre nouveau mot de passe">
+
+            </div>
+            <div class="form-group">
+                <label for="birthdate">CIN</label>
+                <input type="text" id="cin" formControlName="cin" placeholder="Votre Cin">
+
+            </div>
+
+            <button class="btn-submit" (click)="enregistrer()" type="submit">S'inscrire</button>
+        </form>
+        <div class="w">
+        <p class="sign-in">Vous avez déjà un compte? <a href="authentification">Se connecter</a></p>
+    </div>
+    </div>
+</body>

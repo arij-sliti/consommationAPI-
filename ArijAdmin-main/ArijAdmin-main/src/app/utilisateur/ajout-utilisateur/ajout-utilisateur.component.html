@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Ajouter Utilisateur</title>
+<style>
+  /* Style du bouton */
+  .btn {
+    padding: 10px 20px;
+    background-color: #0f9f0c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 25px;
+    margin-top: 10px;
+  }
+
+  /* Style du formulaire */
+  .form-container {
+    display: none;
+    margin-top: 20px;
+  }
+
+  .form-field {
+    margin-bottom: 10px;
+  }
+
+  .form-field label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .form-field input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  /* Style du bouton de soumission */
+  .submit-btn {
+    padding: 10px 20px;
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  .submit{
+    padding: 10px 20px;
+    background-color: #c5b5b5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+
+<button class="btn" onclick="document.querySelector('.form-container').style.display='block'">Ajouter demandeur</button>
+
+<div class="form-container">
+  <form [formGroup]="structureform" id="userForm">
+    <div class="form-field">
+      <label for="name">Nom:</label>
+      <input type="text" formControlName="nom" id="name" name="name" required>
+    </div>
+    <div class="form-field">
+        <label for="name">Preom:</label>
+        <input type="text" formControlName="prenom" id="name" name="name" required>
+      </div>
+    
+    <div class="form-field">
+      <label for="email">Email:</label>
+      <input type="email" formControlName="email" id="email" name="email" required>
+    </div>
+    
+    <div class="form-field">
+      <label for="password">Mot de passe:</label>
+      <input type="text" formControlName="password" id="password" name="password" required>
+    </div>
+    
+    <div class="form-field">
+      <label for="confirmPassword">Login:</label>
+      <input type="text" formControlName="login" id="confirmPassword" name="confirmPassword" required>
+    </div>
+    <div class="form-field">
+        <label for="confirmPassword">CIN:</label>
+        <input type="text" formControlName="cin" id="confirmPassword" name="confirmPassword" required>
+      </div>
+
+    <div class="form-field">
+        <label for="confirmPassword">Date de naissance :</label>
+        <input type="date" formControlName="datenaissance" id="confirmPassword" name="confirmPassword" required>
+      </div>
+
+    <button type="submit" class="submit">Cancel</button>
+
+    <button type="submit" (click)="enregistrer()" class="submit-btn">Enregistrer</button>
+  </form>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,205 @@
+<html>
+  <head>
+    <!-- Inclusion de Bootstrap 5.3.3 CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<style>
+  /* Style de base pour Bootstrap 5.3.3 */
+:root {
+  --bs-primary: #0d6efd; /* Couleur principale */
+  --bs-success: #198754; /* Couleur de succès */
+  --bs-info: #0dcaf0; /* Couleur d'information */
+  --bs-warning: #ffc107; /* Couleur d'avertissement */
+  --bs-danger: #dc3545; /* Couleur de danger */
+  --bs-light: #f8f9fa; /* Couleur claire */
+  --bs-dark: #212529; /* Couleur sombre */
+}
+
+/* Personnalisation des champs de formulaire */
+.form-control {
+  background-color: var(--bs-light);
+  border: 0.5px solid var(--bs-dark);
+  border-radius: 0.2rem; /* 6px */
+  padding: 2px;
+  max-width: 300px; /* Ajustez cette valeur selon vos besoins */
+
+}
+
+.form-control:focus {
+  border-color: var(--bs-primary);
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* Personnalisation des étiquettes */
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--bs-dark);
+  font-weight: 500;
+}
+
+/* Espacement et alignement */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+/* Boutons */
+.btn-primary {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+}
+
+.btn-primary:hover {
+  background-color: #0b5ed7;
+  border-color: #0a58ca;
+}
+.form-row {
+  display: flex;
+  justify-content: space-between; /* Ajuste l'espacement entre les formulaires */
+}
+
+.form-group {
+  margin: 0 10px; /* Ajuste l'espacement autour de chaque groupe de formulaire */
+  flex: 1; /* Permet aux formulaires de prendre une largeur égale */
+}
+
+
+</style>
+  </head>
+
+
+
+
+
+
+
+<div class="az"><h2>lancez vos demande:</h2></div>
+<div class="container">
+<form [formGroup]="demandeForm">
+
+<div class="row">
+  <div class="col">
+    
+    <select class="form-control" formControlName="api"   required>
+
+      <option *ngFor="let u of api" [value]="u.id">{{u?.nom}}</option>
+     
+    </select>  </div>
+  <div class="col">
+   <div class="ich"> <button type="button" (click)="rechecher()" class="btn btn-info">Recherche</button></div>
+  </div>
+</div>
+</form>
+<br><br><br>
+
+
+<div *ngIf="this.afficher">
+
+<form>
+ 
+  <div class="container">
+    <div class="d-flex flex-row justify-content-between">
+      <div class="form-section">
+        <h4>Informations sur l’API</h4>
+        <form>
+          <div class="form-group">
+            <label for="apiName">Nom API</label>
+            <input type="text" class="form-control" id="apiName" value="{{this.apibyid?.nom}}">
+          </div>
+          <div class="form-group">
+            <label for="apiDescription">Description de l’API</label>
+            <textarea class="form-control" id="apiDescription">{{this.apibyid?.description}}</textarea>
+          </div>
+          <!-- ... autres champs du formulaire API ... -->
+        </form>
+      </div>
+      <div class="form-section">
+        <h4>Informations sur <br>l’application consommant l'API</h4>
+        <form>
+          <div class="form-group">
+            <label for="hostName">Nom Hébergeur</label>
+            <input type="text" class="form-control" id="hostName" value="{{this.apibyid?.hebergeur?.nom}}">
+          </div>
+          <!-- ... autres champs du formulaire Application ... -->
+        
+       </form>  
+
+  <div class="form-group">
+    <label for="appPublished">Application publié sur Internet</label>
+    <input type="text" class="form-control" id="appPublished" value="{{this.apibyid?.hebergeur?.publier}}">
+  </div>
+  <div class="form-group">
+    <label for="domainName">Le nom de domaine de l’application</label>
+    <input type="text" class="form-control" id="domainName" value="{{this.apibyid?.hebergeur?.domaine}}">
+  </div>
+  <div class="form-group">
+    <label for="serverIPs">Adresses IP des serveurs</label>
+    <input type="text" class="form-control" id="serverIPs" value="{{this.apibyid?.hebergeur?.adresse}}">
+  </div>
+  <div class="form-group">
+    <label for="hostLocation">Hébergeur situé en Tunisie</label>
+    <input type="text" class="form-control" id="hostLocation" value="{{this.apibyid?.hebergeur?.locale}}">
+  </div>
+  <div class="form-group">
+    <label for="connectionType">Type de connexion au CNI</label>
+    <input type="text" class="form-control" id="connectionType" value="{{this.apibyid?.hebergeur?.cni}}">
+  </div>
+      </div>
+      <form [formGroup]="dForm">
+    <h4>Demande </h4><br>
+    <table width="100%">
+      <tr>
+        <td width="1%"></td>
+        <td width="40%"><label for="apiName">Nom </label>
+          <input class="form-control" type="text" formControlName="nom" name="apiDescription" required>
+
+        </td>
+          <td width="1%"></td>
+    
+          <td width="40%"> <label for="apiDescription">Prenom</label>
+            <input class="form-control" type="text" formControlName="prenom" name="apiDescription" required>
+         </td>
+         <td width="1%"></td>
+    
+      </tr>
+      <tr>
+        <td width="1%"></td>
+        <td width="40%">    <label for="userCode">Email</label>
+         
+          <input class="form-control" type="text" formControlName="email" name="userCode" required>
+        </td>
+          <td width="1%"></td>
+    
+          <td width="40%">  <label for="accessData">Teléphone</label>
+            <input class="form-control" type="text" formControlName="tel" id="accessData" name="accessData" required>     </td>
+         <td width="10%"></td>
+    
+      </tr>
+      <tr>
+        <td width="1%"></td>
+
+        <td width="40%">    <label for="userCode">L’impact attendu</label>
+          <input class="form-control" type="text" formControlName="mode" id="accessData" name="accessData" required>     </td>
+
+       
+       <td width="1%"></td>
+       <td width="40%">    <label for="userCode">Le cadre d’utilisation</label>
+         
+        <input class="form-control" type="text" formControlName="cadreutilisation" name="userCode" required>
+      </td>
+        <td width="1%"></td>
+      </tr>
+ </table>
+ <div class="e"> <button type="button" (click)="demande(this.apibyid?.id)"  class="btn btn-success" > Demander </button></div>
+
+ </form>
+    
+  </div>
+
+</div>
+
+      <br><br>
+
+
+
+  
+  

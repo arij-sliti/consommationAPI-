@@ -1,0 +1,34 @@
+
+  
+  
+  
+      
+      <div class="title">Détail Hébergeur</div>
+      
+      <br><br>
+      <table>
+        <tr>
+          <th>Nom Hébergeur</th>
+          <th>Application publié sur Internet</th>
+          <th>Le nom de domaine de l’application</th>
+          <th>Adresses IP des serveurs</th>
+          <th>Hébergeur situé en Tunisie</th>
+          <th>Type de connexion au CNI</th>
+          <th>Pays</th>
+
+        </tr>
+        
+        <tr>
+          <td>{{this.hebergeur?.nom}}</td>
+          <td>{{this.hebergeur?.publier}}</td>
+          <td>{{this.hebergeur?.domaine}}</td>
+          <td>{{this.hebergeur?.adresse}}</td>
+          <td>{{this.hebergeur?.locale}}</td>
+          <td>{{this.hebergeur?.cni}}</td>
+          <td *ngIf="this.hebergeur?.locale">Tunisie</td>
+          <td *ngIf="!this.hebergeur?.locale">{{this.hebergeur?.pays}}</td>
+
+        </tr>
+  
+      </table>
+   
